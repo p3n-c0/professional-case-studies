@@ -277,3 +277,205 @@ Generated outputs currently include:
 - Run summaries.
 
 These outputs are intended to support review, validation, documentation, and evidence organisation rather than replace examiner interpretation.
+
+
+
+# Engineering Decisions
+
+Developing WEP required balancing forensic best practices with practical investigative workflows. Rather than simply implementing features, each significant component of the project was guided by deliberate engineering decisions intended to maximise reliability, transparency, and usability.
+
+## Working Copies Instead of Original Evidence
+
+One of the earliest design decisions was to ensure that WEP never processes the original evidence database directly.
+
+Although SQLite allows databases to be opened in read-only mode, relying solely on file access modes was considered insufficient from an evidential perspective. Investigators should always be able to demonstrate that analytical processing occurred independently of the original evidence.
+
+For this reason, WEP creates a dedicated working copy before any analysis begins.
+
+This approach offers several advantages:
+
+- preserves the original evidence in an untouched state
+- supports repeatable examinations
+- aligns with accepted forensic handling practices
+- reduces the risk of accidental evidence modification
+
+This decision reflects the principle that protecting evidence integrity is more important than reducing processing time.
+
+---
+
+## SHA-256 Integrity Verification
+
+Integrity verification is integrated throughout the workflow.
+
+Rather than hashing only the original evidence, WEP also generates integrity hashes for generated outputs.
+
+This provides investigators with an audit trail demonstrating:
+
+- evidence authenticity
+- processing consistency
+- report integrity
+- repeatability of generated outputs
+
+The inclusion of output hashes was intended to improve documentation quality and simplify future validation exercises.
+
+---
+
+## Read-Only SQLite Processing
+
+SQLite databases are central to modern mobile forensic examinations.
+
+Instead of exporting database contents into proprietary intermediate formats, WEP performs direct read-only analysis of the original SQLite structures.
+
+This preserves transparency because investigators can directly relate extracted information back to database tables and records.
+
+It also makes troubleshooting considerably easier whenever WhatsApp modifies its schema.
+
+---
+
+## Structured Output Rather Than Raw Queries
+
+Many investigators perform repeated SQL queries throughout an examination.
+
+Although SQL provides flexibility, repeatedly constructing queries can become time-consuming and inconsistent between investigations.
+
+WEP therefore transforms raw database records into structured investigative outputs that are immediately usable.
+
+Examples include:
+
+- chronological timelines
+- participant summaries
+- chat summaries
+- HTML reports
+- CSV exports
+
+These outputs reduce repetitive manual work while remaining fully traceable to the underlying evidence.
+
+---
+
+## HTML Reporting
+
+One deliberate decision was to generate HTML reports rather than limiting outputs to spreadsheets.
+
+Investigative timelines often need to be reviewed by individuals with varying technical backgrounds, including investigators, supervisors, legal professionals, and occasionally courts.
+
+HTML provides several advantages:
+
+- readable formatting
+- chronological presentation
+- simple navigation
+- portability
+- compatibility across operating systems
+
+It also allows future versions to incorporate richer visualisations without fundamentally changing the reporting workflow.
+
+---
+
+## Entity Resolution
+
+Raw WhatsApp databases frequently contain identifiers that are meaningful to software but not necessarily to investigators.
+
+A timeline containing only JIDs and internal identifiers is considerably more difficult to interpret.
+
+Entity resolution was therefore introduced to translate available database information into investigator-friendly names wherever possible.
+
+This significantly improves report readability while preserving underlying identifiers for verification purposes.
+
+---
+
+## Incremental Feature Development
+
+Instead of attempting to implement every possible capability from the beginning, WEP has followed an incremental release strategy.
+
+Each release introduces carefully validated functionality.
+
+Examples include:
+
+- message categorisation
+- entity resolution
+- participant analytics
+
+This approach reduces technical debt, simplifies validation, and provides opportunities to refine architectural decisions as the project evolves.
+
+---
+
+## Explicit Recognition of Limitations
+
+Another deliberate engineering decision was to clearly document what WEP does not do.
+
+For example, the software does not attempt to determine:
+
+- authorship
+- intent
+- legal attribution
+- ownership of a device
+- evidential significance
+
+Those determinations remain the responsibility of trained investigators.
+
+Making these limitations explicit reduces the risk of inappropriate reliance on automated outputs and reinforces the software's role as an investigative support utility rather than an autonomous forensic examiner.
+
+---
+
+# Technical Challenges
+
+Developing WEP presented several technical and investigative challenges beyond ordinary software engineering.
+
+Many of these challenges arose from the nature of forensic evidence itself, where accuracy, repeatability, and transparency are often more important than speed.
+
+## WhatsApp Schema Evolution
+
+WhatsApp's internal database structure changes periodically.
+
+Fields may be renamed, relationships altered, and new message types introduced without public documentation.
+
+Designing software capable of accommodating these changes required careful inspection of real datasets and an architecture that could evolve incrementally rather than depending on rigid assumptions.
+
+---
+
+## Timestamp Conversion
+
+WhatsApp stores timestamps using Apple's reference date rather than standard Unix time.
+
+Correctly converting these timestamps into investigator-readable formats was essential for accurate timeline reconstruction.
+
+Small conversion errors could significantly affect investigative interpretation, particularly when correlating events across multiple evidence sources.
+
+---
+
+## Message Categorisation
+
+WhatsApp message types are represented numerically within the database.
+
+Interpreting these values required empirical analysis of real-world datasets.
+
+The categorisation model currently implemented within WEP was developed through repeated validation and remains intentionally conservative, recognising that future WhatsApp versions may introduce additional message types.
+
+---
+
+## Entity Resolution
+
+Resolving participants proved considerably more complex than initially anticipated.
+
+Information relating to chats, group members, push names, and sender identifiers is distributed across multiple database tables.
+
+Successfully reconstructing meaningful participant information required correlating records across these tables while gracefully handling incomplete or missing data.
+
+---
+
+## Large Dataset Processing
+
+Real forensic datasets frequently contain tens of thousands of messages.
+
+The validation dataset used during development exceeded forty-four thousand records.
+
+Design decisions therefore needed to account for memory usage, processing efficiency, and report generation performance while preserving readability.
+
+---
+
+## Balancing Automation with Transparency
+
+Perhaps the most significant challenge involved determining how much automation was appropriate.
+
+Increasing automation improves efficiency but may reduce transparency if investigators cannot understand how results were generated.
+
+Throughout development, preference was consistently given to approaches that maintained visibility into processing decisions, even where more complex automation might have been possible.
