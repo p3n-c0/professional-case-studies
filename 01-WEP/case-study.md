@@ -479,3 +479,183 @@ Perhaps the most significant challenge involved determining how much automation 
 Increasing automation improves efficiency but may reduce transparency if investigators cannot understand how results were generated.
 
 Throughout development, preference was consistently given to approaches that maintained visibility into processing decisions, even where more complex automation might have been possible.
+
+# Validation & Testing
+
+Validation was treated as an essential component of the project rather than a final checkpoint. Given the forensic context in which WEP is intended to operate, confidence in the correctness and repeatability of outputs is critical.
+
+Testing focused on verifying that the tool consistently transformed extracted WhatsApp evidence into structured outputs without altering the original evidence or introducing unintended processing artefacts.
+
+## Validation Dataset
+
+The primary validation exercise was conducted using a real iOS WhatsApp dataset containing approximately **44,834 message records**. The dataset represented the complexity typically encountered during practical forensic examinations, including individual chats, group conversations, media references, system messages, and participant information.
+
+Using a real-world dataset allowed the software to be evaluated against authentic database structures and communication patterns rather than synthetic test data.
+
+## Validation Objectives
+
+The validation process sought to confirm that WEP could:
+
+- Process extracted WhatsApp databases without modifying original evidence.
+- Correctly extract message records.
+- Convert timestamps into investigator-readable formats.
+- Categorise supported message types accurately.
+- Resolve chat and participant information where available.
+- Generate structured CSV exports.
+- Produce HTML timeline reports.
+- Create integrity hashes for evidence and generated outputs.
+- Generate processing documentation for examiner review.
+
+## Validation Results
+
+Testing confirmed that the implemented functionality performed as expected across the validation dataset.
+
+Key observations included:
+
+- Successful extraction of message records.
+- Reliable timeline reconstruction.
+- Correct generation of CSV exports.
+- Successful HTML report generation.
+- Accurate SHA-256 hash generation.
+- Effective entity resolution for the majority of records.
+- Consistent report generation across repeated executions.
+
+Entity resolution statistics demonstrated substantial improvements in report readability by resolving both chat information and participant information wherever corresponding database records were available.
+
+## Testing Philosophy
+
+Rather than attempting to maximise the number of implemented features in early releases, development prioritised correctness and reliability.
+
+Each new capability introduced into WEP is expected to undergo practical validation before being considered stable. This incremental validation strategy helps ensure that future functionality builds upon a reliable foundation rather than increasing technical complexity prematurely.
+
+---
+
+# Results & Impact
+
+Although WEP remains under active development, it has already demonstrated practical value during forensic review and investigative analysis.
+
+The project has significantly reduced the amount of repetitive manual processing required when examining extracted WhatsApp databases. Tasks that previously required repeated SQL queries and manual organisation can now be completed through a structured and repeatable workflow.
+
+Several practical improvements have been realised.
+
+## Improved Investigative Efficiency
+
+Investigators can rapidly obtain:
+
+- chronological communication timelines
+- participant summaries
+- chat summaries
+- structured exports
+- integrity documentation
+
+without manually reconstructing these outputs from raw database tables.
+
+## Increased Report Readability
+
+Entity resolution transforms internal database identifiers into meaningful participant and conversation information wherever possible.
+
+This substantially improves the readability of generated reports while preserving traceability back to the original evidence.
+
+## Repeatable Workflows
+
+By standardising common analytical steps, WEP promotes greater consistency between examinations.
+
+Investigators performing similar analyses are more likely to produce comparable outputs using a documented workflow rather than relying on individually developed SQL queries.
+
+## Foundation for Future Development
+
+Perhaps the most important outcome is that WEP has established a reusable architecture for future forensic utilities within SecureAfrica Cyber Solutions.
+
+Rather than representing an isolated project, WEP forms part of a broader vision of investigator-focused software designed to support digital forensic examinations and cybercrime investigations.
+
+---
+
+# Lessons Learned
+
+Developing WEP provided valuable technical and professional lessons extending beyond software development itself.
+
+## Real Investigations Drive Better Software
+
+The project reinforced the importance of building software around genuine investigative needs rather than hypothetical feature lists.
+
+Many of the most valuable capabilities emerged directly from practical forensic work rather than from initial planning.
+
+## Simplicity Improves Reliability
+
+Adding features is relatively straightforward.
+
+Maintaining reliability, transparency, and evidential defensibility is considerably more difficult.
+
+Several design decisions favoured simpler, more understandable solutions over more complex implementations.
+
+## Documentation Is Part of the Product
+
+In forensic software, documentation is not merely supplementary.
+
+Processing logs, integrity manifests, technical documentation, and validation reports all contribute to the trustworthiness of the software.
+
+Producing clear documentation proved just as important as writing functional code.
+
+## Engineering Never Truly Ends
+
+Every validated release exposed opportunities for further refinement.
+
+Rather than viewing unfinished functionality as failure, the project embraced continuous improvement through carefully planned iteration.
+
+---
+
+# Future Roadmap
+
+WEP continues to evolve based on practical investigative requirements and lessons learned during development.
+
+Planned areas of future development include:
+
+- Expanded support for Android WhatsApp databases.
+- Improved media awareness and media correlation.
+- Richer participant analytics.
+- Enhanced timeline intelligence.
+- Additional reporting formats.
+- Improved filtering and search capabilities.
+- Case management enhancements.
+- Plugin architecture for future artefact processing.
+- Greater support for investigator customisation.
+- Additional validation across a wider range of WhatsApp versions and acquisition methods.
+
+Longer term, WEP is intended to become one component within a broader ecosystem of investigator-focused forensic tools developed under SecureAfrica Cyber Solutions.
+
+---
+
+# Technologies Used
+
+| Category | Technologies |
+|----------|--------------|
+| Programming Language | Python |
+| Database Processing | SQLite |
+| Reporting | HTML, CSV |
+| Integrity Verification | SHA-256 |
+| Version Control | Git, GitHub |
+| Development Environment | Visual Studio Code |
+| Target Platform | Windows (primary), cross-platform compatible |
+| Domain | Mobile Device Forensics |
+
+---
+
+# Repository
+
+Source code, documentation, releases, and future development are maintained within the public project repository.
+
+**Repository:**
+
+https://github.com/p3n-c0/sacs-wep
+
+---
+
+# Closing Reflection
+
+SACS WEP began as an effort to solve a practical investigative challenge encountered during digital forensic examinations. What started as a utility for reducing repetitive SQLite analysis gradually evolved into a broader exercise in forensic software engineering, where evidential integrity, transparency, repeatability, and investigator usability became the defining priorities.
+
+Developing the project reinforced my belief that effective forensic software should assist investigators rather than replace them. Automation can significantly reduce repetitive technical work, but the interpretation of evidence, the evaluation of context, and the formation of investigative conclusions remain fundamentally human responsibilities.
+
+Beyond its technical capabilities, WEP represents my broader commitment to developing practical technologies that strengthen cybercrime investigations within African digital environments. As SecureAfrica Cyber Solutions continues to expand its portfolio of investigative and cybersecurity products, WEP serves as an important foundation for future research, engineering, and innovation.
+
+While the project remains under active development, each iteration reflects an ongoing commitment to continuous learning, careful engineering, and the responsible application of technology in support of digital investigations.
