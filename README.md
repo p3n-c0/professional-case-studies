@@ -31,7 +31,7 @@ My interests include:
 
 ## 01 — SACS WEP
 
-**Category**
+**Category:**
 Digital Forensics • WhatsApp Forensics • SQLite Analysis
 
 A lightweight forensic support utility designed to transform extracted iOS WhatsApp ChatStorage.sqlite databases into structured investigative outputs while preserving evidence integrity and supporting examiner-led analysis.
@@ -43,7 +43,7 @@ Status:
 
 ## 02 — SACS Oreo
 
-**Category**
+**Category:**
 Offensive Security • Web Application Security Assessment
 
 A Python command-line framework for authorized web application security assessments, emphasizing safe testing methodologies, evidence-based reporting, and investigator-friendly findings.
@@ -55,7 +55,7 @@ Status:
 
 ## 03 — CyberSafe
 
-**Category**
+**Category:**
 Anti-Phishing • Threat Intelligence • Browser Security
 
 An Africa-focused cybersecurity platform designed to detect phishing attempts, malicious links, scams, and online fraud through localized threat intelligence and user-friendly security workflows.
@@ -67,7 +67,7 @@ Status:
 
 ## 04 — Audex Forge
 
-**Category**
+**Category:**
 AI • Digital Investigations • Investigation Management
 
 An AI-assisted cyber investigation platform designed to streamline investigative workflows, evidence management, and analytical support for investigators and security professionals.
