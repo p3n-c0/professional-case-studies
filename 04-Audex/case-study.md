@@ -102,33 +102,8 @@ Audex follows a modular architecture that separates evidence management, analyti
 
 High-level architecture:
 
-Investigator
-│
-▼
-Audex Web Platform
-│
-├──────────────┬───────────────┬──────────────┐
-▼ ▼ ▼
-Case Evidence Investigation
-Management Repository Workspace
-│ │ │
-└──────────────┴───────────────┘
-│
-▼
-AI Investigation Engine
-│
-├──────────────┬──────────────┬──────────────┐
-▼ ▼ ▼
-Timeline Entity Evidence
-Analysis Correlation Summarization
-│
-└──────────────┬──────────────┘
-│
-▼
-Reporting Engine
-│
-▼
-Investigation Reports
+<img width="896" height="1200" alt="image" src="https://github.com/user-attachments/assets/f72dcd40-a176-445e-b909-8ceedc20f111" />
+
 
 ## Case Management
 
@@ -136,13 +111,13 @@ Audex organizes investigations into structured cases that maintain evidence, not
 
 This enables investigators to manage complex investigations without relying on fragmented documentation.
 
-## Evidence Repository
+# Evidence Repository
 
 The evidence repository stores metadata, references, and supporting documentation associated with each investigation.
 
 Rather than replacing specialist forensic software, Audex is intended to organize investigative outputs produced by existing forensic tools while preserving evidential traceability.
 
-## AI Investigation Engine
+# AI Investigation Engine
 
 The AI engine serves as an analytical assistant throughout the investigation.
 
@@ -158,13 +133,13 @@ Planned capabilities include:
 
 The AI does not independently determine guilt, attribution, or legal conclusions.
 
-## Reporting Engine
+# Reporting Engine
 
 Audex assists investigators in producing structured investigative documentation by combining evidence references, analytical findings, timelines, and investigator observations into organized reports suitable for professional review.
 
 Reports remain editable and investigator-controlled.
 
-## Collaboration Layer
+# Collaboration Layer
 
 Future releases will support collaborative investigations involving multiple investigators, supervisors, analysts, and legal reviewers.
 
@@ -177,33 +152,29 @@ Collaboration features are intended to include:
 * investigator notes
 * audit trails
 
-
----
-
-````markdown
 # Core Platform Capabilities
 
 Audex is designed to support investigators throughout every stage of a digital investigation.
 
-## Case Management
+# Case Management
 
 Investigators can organize evidence, notes, tasks, collaborators, and investigative outputs within structured case workspaces.
 
 ---
 
-## Evidence Organization
+# Evidence Organization
 
 Evidence from multiple forensic tools can be catalogued and associated with investigative findings, reducing fragmentation and improving traceability.
 
 ---
 
-## Timeline Reconstruction
+# Timeline Reconstruction
 
 Audex assists investigators in reconstructing chronological sequences from diverse evidence sources, making complex investigations easier to understand and communicate.
 
 ---
 
-## Entity Correlation
+# Entity Correlation
 
 The platform is intended to identify relationships between people, devices, accounts, communications, financial transactions, domains, IP addresses, and other investigative entities.
 
@@ -211,7 +182,7 @@ These relationships are presented as investigative leads requiring human validat
 
 ---
 
-## AI-Assisted Analysis
+# AI-Assisted Analysis
 
 Artificial intelligence supports investigators by:
 
@@ -226,19 +197,19 @@ AI-generated outputs remain recommendations rather than authoritative conclusion
 
 ---
 
-## Investigation Knowledge Base
+# Investigation Knowledge Base
 
 Audex is designed to maintain reusable investigative knowledge, allowing investigators to reference methodologies, previous investigations, analytical techniques, and organizational procedures.
 
 ---
 
-## Collaborative Investigations
+# Collaborative Investigations
 
 Future platform releases will enable multiple investigators to contribute to the same investigation while maintaining accountability through activity tracking and audit logging.
 
 ---
 
-## Reporting
+# Reporting
 
 Audex supports structured report generation by combining investigator observations, evidence references, analytical summaries, and timelines into coherent investigative documentation.
 
