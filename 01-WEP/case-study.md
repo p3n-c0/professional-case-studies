@@ -482,15 +482,23 @@ Throughout development, preference was consistently given to approaches that mai
 
 # Validation & Testing
 
-Validation was treated as an essential component of the project rather than a final checkpoint. Given the forensic context in which WEP is intended to operate, confidence in the correctness and repeatability of outputs is critical.
+A core design objective of SACS WEP was ensuring that every processing stage could be verified and reproduced. Rather than assuming correctness, each major feature was validated against a real iOS WhatsApp dataset containing 44,834 message records.
 
-Testing focused on verifying that the tool consistently transformed extracted WhatsApp evidence into structured outputs without altering the original evidence or introducing unintended processing artefacts.
+Validation focused on confirming that extracted data accurately reflected the underlying SQLite database while preserving forensic integrity.
 
 ## Validation Dataset
 
-The primary validation exercise was conducted using a real iOS WhatsApp dataset containing approximately **44,834 message records**. The dataset represented the complexity typically encountered during practical forensic examinations, including individual chats, group conversations, media references, system messages, and participant information.
+The primary validation dataset contained:
 
-Using a real-world dataset allowed the software to be evaluated against authentic database structures and communication patterns rather than synthetic test data.
+* 44,834 WhatsApp records
+* Individual and group conversations
+* Text messages
+* Media messages
+* System events
+* Multiple participants
+* Associated chat metadata
+
+This dataset was intentionally selected because it represented a realistic forensic workload rather than a synthetic sample.
 
 ## Validation Objectives
 
