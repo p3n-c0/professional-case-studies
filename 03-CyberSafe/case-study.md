@@ -85,7 +85,7 @@ CyberSafe follows a modular client-server architecture designed to separate brow
 
 Current high-level architecture:
 
-![Uploading image.png…]()
+<img width="896" height="1200" alt="image" src="https://github.com/user-attachments/assets/e043304f-864c-4cb0-90f7-8e83c1f2f182" />
 
 
 # Core Platform Capabilities
