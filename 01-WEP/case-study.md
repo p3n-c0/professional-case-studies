@@ -514,11 +514,41 @@ The validation process sought to confirm that WEP could:
 - Create integrity hashes for evidence and generated outputs.
 - Generate processing documentation for examiner review.
 
+## Validation Areas
+
+The following capabilities were validated:
+
+* Evidence-safe working copy creation
+* Read-only SQLite processing
+* SQLite schema inspection
+* Message extraction
+* Message categorization
+* Entity resolution
+* Timeline reconstruction
+* HTML report generation
+* CSV exports
+* Chat summaries
+* Participant summaries
+* SHA-256 integrity verification
+* Processing logs
+* Run summaries
+
 ## Validation Results
 
 Testing confirmed that the implemented functionality performed as expected across the validation dataset.
 
 Key observations included:
+
+| Metric | Result |
+|--------|--------|
+|Total Records Processed | 44,834 |
+|Chat Records Resolved | 44,799 |
+| Sender Records Resolved | 44,833 |
+| Chats Summarized | 1,600 |
+| Participants Summarized | 2,791 |
+| HTML Timeline Records Generated | 44,834|
+
+No write operations were performed against the evidence database during processing.
 
 - Successful extraction of message records.
 - Reliable timeline reconstruction.
@@ -540,11 +570,24 @@ Each new capability introduced into WEP is expected to undergo practical validat
 
 # Results & Impact
 
-Although WEP remains under active development, it has already demonstrated practical value during forensic review and investigative analysis.
+Although SACS WEP is currently an investigator-support utility rather than a complete forensic suite, it significantly reduces the amount of manual effort required when reviewing WhatsApp evidence.
 
-The project has significantly reduced the amount of repetitive manual processing required when examining extracted WhatsApp databases. Tasks that previously required repeated SQL queries and manual organisation can now be completed through a structured and repeatable workflow.
+Instead of manually navigating thousands of SQLite records, investigators receive structured outputs that are easier to review, search, filter, and correlate.
 
-Several practical improvements have been realised.
+The project introduced several workflow improvements:
+
+* Automated extraction of WhatsApp message records
+* Structured CSV exports suitable for spreadsheet analysis
+* Human-readable HTML timeline reports
+* Automatic participant aggregation
+* Timeline reconstruction
+* Chat-level summaries
+* Output integrity verification
+* Repeatable processing workflow
+
+For larger investigations involving tens of thousands of messages, these outputs substantially reduce repetitive manual database inspection.
+
+The project also served as the practical foundation for the author's broader work in digital forensic automation and investigator tooling.
 
 ## Improved Investigative Efficiency
 
