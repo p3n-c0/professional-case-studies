@@ -85,33 +85,8 @@ CyberSafe follows a modular client-server architecture designed to separate brow
 
 Current high-level architecture:
 
-User Browser
-        │
-        ▼
-CyberSafe Browser Extension
-        │
-        ▼
-Secure Backend API
-        │
-        ├──────────────┐
-        ▼              ▼
-Threat Database   User Reports
-        │              │
-        └──────────────┘
-               │
-               ▼
-Risk Evaluation Engine
-               │
-               ▼
-API Response
-               │
-               ▼
-Browser Warning /
-Safe Notification
+![Uploading image.png…]()
 
-               │
-               ▼
-Administrative Dashboard
 
 # Core Platform Capabilities
 
