@@ -44,3 +44,149 @@ CyberSafe is intended to become an integrated cybersecurity platform that combin
 
 By bringing these capabilities together within a unified platform, CyberSafe seeks to improve cyber resilience for individuals, educational institutions, businesses, and public organizations operating throughout Africa.
 
+# Understanding the Threat Landscape
+
+CyberSafe was conceived in response to the rapidly evolving cyber threat landscape affecting internet users across Nigeria and the broader African region.
+
+While phishing remains one of the most common cyber threats globally, many attacks observed within African digital ecosystems exhibit unique characteristics that are often underrepresented within traditional threat intelligence platforms. These include fraudulent banking portals, fake government websites, impersonation scams, cryptocurrency investment fraud, social media marketplace scams, employment scams, and region-specific social engineering campaigns.
+
+Many of these attacks exploit trust rather than technical vulnerabilities. Victims are frequently persuaded to disclose credentials, authorize financial transactions, install malicious applications, or share sensitive personal information through convincing yet fraudulent digital experiences.
+
+Several factors contribute to this growing challenge:
+
+- Increasing internet adoption across Africa
+- Expanding digital financial services
+- Limited cybersecurity awareness
+- Rapid growth of mobile-first internet usage
+- Delayed identification of locally emerging threats
+- Limited localized threat intelligence resources
+
+Existing browser protection solutions often rely heavily on globally curated threat databases. While highly effective against established international threats, they may not immediately recognize new phishing domains, fraudulent financial platforms, or localized scams targeting African users.
+
+CyberSafe seeks to address this gap by combining localized threat intelligence with proactive browser protection and user education, enabling users to make safer decisions while navigating the internet.
+
+# Solution Overview
+
+CyberSafe is designed as an integrated cybersecurity platform that combines browser-based protection, cloud-backed threat intelligence, user reporting, organizational visibility, and security awareness into a unified ecosystem.
+
+The browser extension serves as the primary point of interaction for most users. As websites are visited, URLs can be evaluated against multiple sources of intelligence and platform-specific detection logic to determine potential phishing, fraud, or malicious activity.
+
+When suspicious activity is identified, CyberSafe provides clear, understandable warnings rather than highly technical security messages. The objective is to help users make informed decisions without requiring prior cybersecurity expertise.
+
+Beyond browser protection, CyberSafe includes web-based components that support organizational deployment, threat reporting, administrative review, and future security awareness initiatives.
+
+The backend acts as the central intelligence layer responsible for processing scan requests, managing reported threats, coordinating platform data, and supporting future AI-assisted classification capabilities.
+
+Rather than functioning as a standalone browser extension, CyberSafe is designed as a continuously evolving cybersecurity platform capable of adapting to emerging threats while supporting both individual users and organizations.
+
+# Platform Architecture
+
+CyberSafe follows a modular client-server architecture designed to separate browser protection, backend intelligence, administrative management, and future analytical capabilities.
+
+Current high-level architecture:
+
+User Browser
+        │
+        ▼
+CyberSafe Browser Extension
+        │
+        ▼
+Secure Backend API
+        │
+        ├──────────────┐
+        ▼              ▼
+Threat Database   User Reports
+        │              │
+        └──────────────┘
+               │
+               ▼
+Risk Evaluation Engine
+               │
+               ▼
+API Response
+               │
+               ▼
+Browser Warning /
+Safe Notification
+
+               │
+               ▼
+Administrative Dashboard
+
+# Core Platform Capabilities
+
+CyberSafe is designed as a layered cybersecurity platform providing multiple complementary capabilities rather than relying on a single detection mechanism.
+
+## Real-Time URL Risk Assessment
+
+The browser extension evaluates websites in real time by submitting URLs to the CyberSafe backend for analysis.
+
+Users receive understandable security feedback that assists them in making informed decisions before interacting with potentially malicious websites.
+
+---
+
+## Localized Threat Intelligence
+
+A key differentiator of CyberSafe is its emphasis on African cyber threats.
+
+The platform is designed to recognize phishing campaigns, scam patterns, and fraudulent online activity that may not yet appear within global threat intelligence databases.
+
+Future intelligence sources will combine:
+
+- community reporting
+- analyst review
+- AI-assisted classification
+- institutional partnerships
+
+---
+
+## Browser Protection
+
+CyberSafe operates silently during normal browsing while remaining ready to alert users whenever suspicious activity is identified.
+
+Protection is designed to minimize unnecessary interruptions while providing clear warnings when elevated risk is detected.
+
+---
+
+## Manual URL Analysis
+
+Users may manually submit suspicious URLs for evaluation, allowing verification before visiting unfamiliar websites or responding to unsolicited messages.
+
+---
+
+## Community Threat Reporting
+
+CyberSafe enables users to report suspicious websites directly through the platform.
+
+These submissions contribute to a continuously improving intelligence database that supports future threat identification.
+
+---
+
+## Organizational Security Dashboard
+
+Organizations using CyberSafe gain access to dashboards designed to provide visibility into platform activity, reported threats, awareness initiatives, and future analytics.
+
+This functionality supports businesses, educational institutions, and public organizations seeking improved cyber resilience.
+
+---
+
+## Security Awareness
+
+CyberSafe combines technical protection with educational content intended to improve long-term cybersecurity awareness.
+
+Rather than presenting only technical warnings, the platform explains risks using accessible language suitable for users with varying levels of technical expertise.
+
+---
+
+## Future AI-Assisted Threat Analysis
+
+Future platform releases will introduce AI-assisted capabilities that support:
+
+- phishing classification
+- scam identification
+- threat summarization
+- report prioritization
+- intelligence correlation
+
+These capabilities are intended to augment human analysis rather than replace analyst judgement.
+
